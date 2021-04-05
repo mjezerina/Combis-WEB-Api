@@ -1,0 +1,46 @@
+<form  #form="ngForm" (submit)="OnSubmit(form)">
+    <div class="row">
+        <div class="form-group col-md-4">
+            <label>Ime</label>
+            <input class="form-control form-control-lg" placeholder="Ime" name="firstname" #firstname="ngModel"
+                [(ngModel)]="service.formData.firstname" [ngClass]="{'is-invalid': firstname.touched && firstname.invalid }" required>
+                <div *ngIf="firstname.touched && firstname.invalid" class="invalid-feedback">
+                    <div *ngIf="firstname.errors?.required">Obavezan je unos imena</div>
+                </div>
+            
+        </div>
+        <div class="form-group col-md-4">
+            <label>Prezime</label>
+            <input class="form-control form-control-lg" placeholder="Prezime" name="lastname" #lastname="ngModel"
+                [(ngModel)]="service.formData.lastname" [ngClass]="{'is-invalid': lastname.touched && lastname.invalid }" required>
+                <div *ngIf="lastname.touched && lastname.invalid" class="invalid-feedback">
+                    <div *ngIf="lastname.errors?.required">Obavezan je unos prezimena</div>
+                </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-5">
+            <label>Email</label>
+            <input class="form-control form-control-lg" placeholder="email" name="email" #email="ngModel"
+                [(ngModel)]="service.formData.email" [ngClass]="{ 'is-invalid': email.touched && email.invalid }" required email >
+                <div *ngIf="email.touched && email.invalid" class="invalid-feedback">
+                    <div *ngIf="email.errors?.required">Obavezan unos email adrese</div>
+                    <div *ngIf="email.errors?.email">Email adresa mora biti ispravnog formata</div>
+                </div>
+        </div>
+        <div class="form-group col-md-5">
+            <label>Broj mobitela</label>
+            <input class="form-control form-control-lg" placeholder="broj mobitela" name="phonenumber"
+                #phonenumber="ngModel" [(ngModel)]="service.formData.mobilephone">
+        </div>
+    </div>
+    <div class="form-group col-md-8">
+        <label>Adresa</label>
+        <input class="form-control form-control-lg" placeholder="adresa" name="address" #address="ngModel"
+            [(ngModel)]="service.formData.address">
+    </div>
+    <br>
+    <div class="form-group">
+        <button class="btn btn-info btn-lg btn-block" name="gumb" type="submit"  [disabled]='!form.valid'>SUBMIT</button>
+    </div>
+</form>

@@ -1,0 +1,31 @@
+<div class="jumbtron py-3">
+    <h1 class="display-4 text-center">Imenik</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <app-contacts-form></app-contacts-form>
+    </div>
+    <div class="col-md-6">
+        <table class="table table-striped table-dark table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Ime</th>
+                    <th>Prezime</th>
+                    <th>Email</th>
+                    <th>Broj mobitela</th>
+                    <th>Adresa</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pd of service.list">
+                    <td>{{pd.firstname}}</td>
+                    <td>{{pd.lastname}}</td>
+                    <td>{{pd.email}}</td>
+                    <td>{{pd.mobilephone}}</td>
+                    <td>{{pd.address}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
